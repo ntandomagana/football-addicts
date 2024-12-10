@@ -1,0 +1,13 @@
+
+.hero-heading{
+    font-family: "Fort Quinsy", sans-serif;
+    color: white;
+    margin-top: 10px;
+}
+.section {
+    background-image: url(/images/home-hero.png);
+    background-size: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 80vh;
+}
