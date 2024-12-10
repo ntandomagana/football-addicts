@@ -2,7 +2,7 @@
 .hero-heading{
     font-family: "Fort Quinsy", sans-serif;
     color: white;
-    margin-top: 10px;
+    
 }
 .section {
     background-image: url(/images/home-hero.png);
@@ -10,4 +10,54 @@
     object-fit: cover;
     width: 100%;
     height: 80vh;
+   
+}
+/* 
+.wrapper {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    padding-top: 50rem;
+    height: 100vh;
+
+} */
+
+.hero-content {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    /* padding-top: 30rem; */
+    height: 80vh;
+    margin-left: 50px;
+}
+
+.hero-heading{
+    /* padding-top: 10rem; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 50px;
+    color: white;
+    font-size: 35px;
+}
+
+.sub-heading {
+    color: white;
+    font-size: 35px;
+    line-height: 2.5;
+    margin-left: 50px;
+}
+
+/* .form-control {
+    height: 150px;
+    width: auto;
+} */
+
+.search-field {
+    padding: 50px;
+    width: 450px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 20px;
+    font-size: 18px;
+    background-color: rgb(235, 254, 255);
+
 }
