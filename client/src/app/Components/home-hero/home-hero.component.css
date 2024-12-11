@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 .hero-heading{
     font-family: "Fort Quinsy", sans-serif;
     color: white;
@@ -29,21 +29,25 @@
     /* padding-top: 30rem; */
     height: 80vh;
     margin-left: 50px;
+    
+  
 }
 
 .hero-heading{
     /* padding-top: 10rem; */
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Permanent Marker", sans-serif;
     margin-left: 50px;
     color: white;
-    font-size: 35px;
+    font-size: 72px;
+    padding-bottom: 5px;
 }
 
 .sub-heading {
     color: white;
-    font-size: 35px;
-    line-height: 2.5;
+    font-size: 45px;
+    line-height: 1.5;
     margin-left: 50px;
+    font-family: "Permanent Marker", sans-serif;
 }
 
 /* .form-control {
@@ -54,18 +58,44 @@
 .search-field {
     padding: 50px;
     width: 750px;
-    height: auto;
     border-radius: 5px;
     border: none;
     margin-right: 20px;
     font-size: 18px;
     background-color: rgb(235, 254, 255);
     margin-left: 50px;
-   
+}
 
+.form-control{
+    padding: 10px 40px;
 }
 
 h1 {
     line-height: 1.5;
     
+}
+
+.btn-search {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #212EAB;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+   
+}
+
+.btn-search:hover {
+    background-color: white;
+    color: #212EAB;
+    border: 2px solid #212EAB;
+}
+
+.icon-button {
+    top: 6px;
+    left: 8px;
+    background-color: transparent;
+    border: none;
+
 }
