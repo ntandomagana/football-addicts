@@ -1,0 +1,19 @@
+
+
+.pitch-container {
+    padding: 8rem;
+    margin: 10px 20px;
+}
+
+img {
+    width: 350px;
+    height: auto;
+    /* object-fit: cover; */
+    display: flex;
+    flex-direction: row;
+}
+.pitch-card {
+    flex: 33.33%;
+  /* padding: 5px; */
+}
+
