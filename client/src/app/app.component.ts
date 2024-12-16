@@ -5,11 +5,12 @@ import { HomeHeroComponent } from './Components/home-hero/home-hero.component';
 import { AboutComponent } from './Components/about/about.component';
 import { PitchComponent } from './Components/pitch/pitch.component';
 import { BelowPitchComponent } from './Components/below-pitch/below-pitch.component';
+import { LoginComponent } from './Components/login/login.component';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavComponent,HomeHeroComponent, AboutComponent, PitchComponent, BelowPitchComponent],
+  imports: [RouterOutlet, NavComponent,HomeHeroComponent, AboutComponent, PitchComponent, BelowPitchComponent, LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
