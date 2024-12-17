@@ -12,7 +12,7 @@
                   id="name" 
                   formControlName="name" 
                   required>
-                <div *ngIf="registerForm.controls['name']?.touched && registerForm.controls['mbebo']?.invalid" class="text-danger mt-1">
+                <div *ngIf="registerForm.controls['name']?.touched && registerForm.controls['name']?.invalid" class="text-danger mt-1">
                   Please enter a valid email address.
                 </div>
               </div>
@@ -75,8 +75,8 @@
           </div>
 
           <!-- Login Button -->
-          <button type="submit" class="btn btn-dark w-100">Login</button>
-          <p class="mt-2">Don't have an account? <a href="/register" class="register-here fw-bold">Register Here!</a></p>
+          <button type="submit" class="btn mb-3 btn-dark w-100">Register</button>
+          <p class="mt-2">Already have an account? <a href="/register" class="register-here fw-bold">Register Here!</a></p>
 
         </form>
       </div>
