@@ -1,7 +1,7 @@
 <div class="container py-5 mt-5 h-100 d-flex justify-content-center align-items-center">
     <div class="card shadow p-4" style="max-width: 400px; border-radius: 1rem;">
       <div class="card-body mb-5">
-        <h3 class="text-center mb-4">Login</h3>
+        <h3 class="text-center mb-4">Register</h3>
         <form [formGroup]="registerForm" (ngSubmit)=" onSubmit()">
 
             <div class="mb-3">
@@ -14,6 +14,19 @@
                   required>
                 <div *ngIf="registerForm.controls['name']?.touched && registerForm.controls['mbebo']?.invalid" class="text-danger mt-1">
                   Please enter a valid email address.
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="surname">Surname</label>
+                <input 
+                  type="surname" 
+                  class="form-control" 
+                  id="surname" 
+                  formControlName="surname" 
+                  required>
+                <div *ngIf="registerForm.controls['surname']?.touched && registerForm.controls['surname']?.invalid" class="text-danger mt-1">
+                  Please enter a valid name.
                 </div>
               </div>
 
@@ -32,17 +45,18 @@
           
           <!-- Email Field -->
           <div class="mb-3">
-            <label for="email">Email</label>
+            <label for="phone">Phone Number</label>
             <input 
-              type="email" 
+              type="text" 
               class="form-control" 
-              id="email" 
-              formControlName="email" 
+              id="phone" 
+              formControlName="phone" 
               required>
-            <div *ngIf="registerForm.controls['email']?.touched && registerForm.controls['email']?.invalid" class="text-danger mt-1">
-              Please enter a valid email address.
+            <div *ngIf="registerForm.controls['phone']?.touched && registerForm.controls['phone']?.invalid" class="text-danger mt-1">
+              Please enter your 10-digit phone number.
             </div>
           </div>
+
 
            <!-- Password Field -->
   
