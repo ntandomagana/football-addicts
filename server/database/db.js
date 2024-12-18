@@ -1,4 +1,4 @@
-
+//databse connection file
 import pkg from "pg";
 const { Pool } = pkg;
 const dotenv = require('dotenv');
