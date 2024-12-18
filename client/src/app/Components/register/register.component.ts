@@ -27,6 +27,8 @@ export class RegisterComponent {
    * It checks if the form is valid and then logs the registration data or alerts the user if the form is invalid.
    */
   onSubmit(): void {
+    console.log(this.registerForm.value); // Logs form data
+console.log(this.registerForm.valid);
     if (this.registerForm.valid) {
       alert('Registered successfully');
       // this.loginService

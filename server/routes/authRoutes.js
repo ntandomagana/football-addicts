@@ -8,10 +8,11 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const router = express.Router();
+const Router = express.Router();
 
 //register endpoint, registers a user
-router.post('/register', async (req, res) => {
+Router.post('/register', async (req, res) => {
+    console.log('Register request received');   
     const { name, surname, phone_number, email, password } = req.body;
 
     if (!name, !surname, !phone_number, !email, !password) {
@@ -29,7 +30,7 @@ router.post('/register', async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, saltRounds)
 
         const newUser = await pool.query(
-            'INSERT INTO users (name, surname, phone_number, email, password) VALUES ($!, $2, $3, $4, $5) RETURNING *', 
+            'INSERT INTO users (name, surname, phone_number, email, password) VALUES ($1, $2, $3, $4, $5) RETURNING *', 
             [name, surname, phone_number, email, hashedPassword]
         );
 
@@ -52,7 +53,7 @@ router.post('/register', async (req, res) => {
     }
 });
 
-Router.post('/login', (req, res) => {
+Router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     try {
@@ -70,7 +71,7 @@ Router.post('/login', (req, res) => {
 
         const token = jwt.sign(
             { id: user.id, email: user.email},
-            SECRET_KEY,
+            process.env.JWT_SECRET,
             { expiresIn: '1h'}
         
         );

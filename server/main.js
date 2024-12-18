@@ -5,9 +5,10 @@ import { Router } from "./routes/authRoutes.js";
 
 
 const app = express();
-app.use(cors);
+app.use(cors());
 app.use(bodyParser.json());
 
+app.use(express.json());
 app.use('/users', Router)
 
 export { app };

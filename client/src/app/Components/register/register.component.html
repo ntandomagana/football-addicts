@@ -1,5 +1,5 @@
 <div class="container py-5 mt-5 h-100 d-flex justify-content-center align-items-center">
-    <div class="card shadow p-4" style="max-width: 400px; border-radius: 1rem;">
+    <div class="card shadow p-4" style="max-width: 400px border-radius-1rem">
       <div class="card-body mb-5">
         <h3 class="text-center mb-4">Register</h3>
         <form [formGroup]="registerForm" (ngSubmit)=" onSubmit()">
@@ -13,7 +13,7 @@
                   formControlName="name" 
                   required>
                 <div *ngIf="registerForm.controls['name']?.touched && registerForm.controls['name']?.invalid" class="text-danger mt-1">
-                  Please enter a valid email address.
+                  Please enter a valid name.
                 </div>
               </div>
 
@@ -50,9 +50,9 @@
               type="text" 
               class="form-control" 
               id="phone" 
-              formControlName="phone" 
+            
               required>
-            <div *ngIf="registerForm.controls['phone']?.touched && registerForm.controls['phone']?.invalid" class="text-danger mt-1">
+            <div *ngIf="registerForm.controls['phone_number']?.touched && registerForm.controls['phone']?.invalid" class="text-danger mt-1">
               Please enter your 10-digit phone number.
             </div>
           </div>
@@ -76,7 +76,7 @@
 
           <!-- Login Button -->
           <button type="submit" class="btn mb-3 btn-dark w-100">Register</button>
-          <p class="mt-2">Already have an account? <a href="/register" class="register-here fw-bold">Register Here!</a></p>
+          <p class="mt-2">Already have an account? <a href="/login" class="register-here fw-bold">Login Here!</a></p>
 
         </form>
       </div>
