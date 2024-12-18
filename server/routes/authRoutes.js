@@ -3,15 +3,15 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { pool } from '../db.js';
+import { pool } from "../database/db.js";
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-const app = express.app();
+const router = express.Router();
 
 //register endpoint, registers a user
-app.post('/user/register', async (req, res) => {
+router.post('/register', async (req, res) => {
     const { name, surname, phone_number, email, password } = req.body;
 
     if (!name, !surname, !phone_number, !email, !password) {
@@ -52,16 +52,37 @@ app.post('/user/register', async (req, res) => {
     }
 });
 
-app.post('/user/login', (req, res) => {
+Router.post('/login', (req, res) => {
     const { email, password } = req.body;
 
-    if(email === user.email && password === user.password) {
-        jwt.sign({user}, 'privatekey', { expiresIn: '1h' }, (err, token) => {
-            res.send(token);
-        });
-    } else {
-        console.log('Error: Could not log in');
+    try {
+        const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+        if(result.length === 0) {
+            return res.status(401).json({ error: 'Email is incorrect' });
+        }
+
+        const user = result.rows[0];
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if(!isMatch) {
+            return res.status(401).json({ error: 'Password is incorrect' });
+        }
+
+        const token = jwt.sign(
+            { id: user.id, email: user.email},
+            SECRET_KEY,
+            { expiresIn: '1h'}
+        
+        );
+
+        res.status(200).json({ message: 'Login successful', token });
+    } catch (error) {
+        console.error('Error during login:', error);
+        res.status(500).json({ error: 'An error occurred during login' });
     }
+
+
+
 })
 
-export default app;
+export { Router };
