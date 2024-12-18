@@ -8,8 +8,9 @@ import { BelowPitchComponent } from './Components/below-pitch/below-pitch.compon
 
 export const routes: Routes = [
     { path: '', component: HomeHeroComponent },
-    { path: 'pitch', component: PitchComponent },
-    { path: 'below-pitch', component: BelowPitchComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent }
+    { path: 'register', component: RegisterComponent },
+    { path: 'pitch', component: PitchComponent },
+    { path: 'below-pitch', component: BelowPitchComponent }
+    
 ]
