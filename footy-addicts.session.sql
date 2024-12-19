@@ -11,3 +11,4 @@ INSERT INTO users (name, surname, email, phone_number, password)
 VALUES
 ('maboku', 'seimela', 'maboku@gmail.com', '0123456789', '000000'),
 ('ofentse', 'mahlangu', 'ofentse@gmail.com', '0123456789', '000000');
+
