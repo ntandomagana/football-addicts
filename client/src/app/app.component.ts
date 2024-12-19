@@ -6,7 +6,6 @@ import { AboutComponent } from './Components/about/about.component';
 import { PitchComponent } from './Components/pitch/pitch.component';
 import { BelowPitchComponent } from './Components/below-pitch/below-pitch.component';
 import { LoginComponent } from './Components/login/login.component';
-import { routes } from './app.routes';
 
 
 @Component({
