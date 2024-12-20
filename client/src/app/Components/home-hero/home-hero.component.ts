@@ -4,7 +4,7 @@ import { PitchComponent } from '../pitch/pitch.component';
 
 @Component({
   selector: 'app-home-hero',
-  imports: [HomeHeroComponent, BelowPitchComponent,PitchComponent],
+  imports: [],
   templateUrl: './home-hero.component.html',
   styleUrl: './home-hero.component.css'
 })

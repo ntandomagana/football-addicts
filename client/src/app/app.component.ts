@@ -10,7 +10,17 @@ import { LoginComponent } from './Components/login/login.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterModule, NavComponent,HomeHeroComponent, AboutComponent, PitchComponent, BelowPitchComponent, LoginComponent],
+  imports: [
+    RouterOutlet, 
+    RouterModule, 
+    NavComponent,
+    HomeHeroComponent,
+    AboutComponent,
+    PitchComponent,
+    BelowPitchComponent,
+    LoginComponent,
+  
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

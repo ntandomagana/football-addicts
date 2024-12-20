@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { HomeHeroComponent } from './Components/home-hero/home-hero.component';
@@ -16,4 +16,5 @@ export const routes: Routes = [
     { path: 'below-pitch', component: BelowPitchComponent },
     { path: 'pitch-details', component: PitchDetailsComponent }
     
-]
+];
+
