@@ -3,8 +3,29 @@
     <h1 class="pitch-heading heading mb-3 fw-bold">Where the football magic happens</h1> 
     <h3 class="pitch-sub-heading fw-semibold">Best pitches to play </h3>       
     </div>
+    <div *ngIf="pitch.length > 0; else noPitches">
+      <div class="pitch-container d-flex gap-4" *ngFor="let pitch of pitches">
+        <div class="pitch-card">
+          <img [src]="pitch.image_URL" class="card-img-top" [alt]="pitch.name" />
+          <div class="card-body pt-2">
+            <h5 class="card-title fw-bold d-flex justify-content-between">
+              {{ pitch.name }}
+              <span class="rating-icon"><i class="bi bi-star"></i>{{ pitch.rating }}</span>
+            </h5>
+            <p class="card-text pb-5">{{ pitch.address }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- No pitches message -->
+    <ng-template #noPitches>
+      <p class="text-center">No pitches available at the moment.</p>
+    </ng-template>
+
+
  <!-- first three -->
-     <div class="pitch-container d-flex gap-4">
+     <!-- <div class="pitch-container d-flex gap-4">
     <div class="pitch-card">
       <img src="./images/pitch-1.png" class="card-img-top " alt=" UJ Orban Hockey Field">
       <div class="card-body pt-2">
@@ -51,24 +72,9 @@
         <p class="card-text pb-5">Swemmer Rd, Glenhazel, Johannesburg, 2192</p>
       </div>
     </div>
-  </div>
+  </div> -->
 </div> 
 
-<!-- <div *ngFor="let pitch of pitches; trackBy: trackPitchId">
-  <div class="card">
-    <img
-      [src]="pitch.image_URL"
-      class="card-img-top"
-      [alt]="pitch.name" />
-    <div class="card-body">
-      <h5 class="card-title">{{ pitch.name }}</h5>
-      <p class="card-text">{{ pitch.address }}</p>
-      <p class="card-price">R{{ pitch.rating }}</p>
-    </div>
-    <div class="card-footer">
-      <button type="button" class="btn btn-dark">Select</button>
-    </div>
-  </div>
-</div> -->
+
 
   
