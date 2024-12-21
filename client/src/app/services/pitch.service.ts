@@ -1,11 +1,14 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { PitchDetailsInterface } from '../types/pitch.interface';
+import { Injectable, signal } from '@angular/core';
+import { PitchDetailsInterface, PitchInterface } from '../types/pitch.interface';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PitchService {
+
+  url = environment.SERVER;
 
 
 
