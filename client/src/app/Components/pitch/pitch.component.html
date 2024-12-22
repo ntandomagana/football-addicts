@@ -3,7 +3,7 @@
     <h1 class="pitch-heading heading mb-3 fw-bold">Where the football magic happens</h1> 
     <h3 class="pitch-sub-heading fw-semibold">Best pitches to play </h3>       
     </div>
-    <div *ngIf="pitch.length > 0; else noPitches">
+    <div *ngIf="pitches.length > 0; else noPitches">
       <div class="pitch-container d-flex gap-4" *ngFor="let pitch of pitches">
         <div class="pitch-card">
           <img [src]="pitch.image_URL" class="card-img-top" [alt]="pitch.name" />

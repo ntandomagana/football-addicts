@@ -2,7 +2,7 @@ import express from "express";
 import cors from 'cors';
 import bodyParser from "body-parser";
 import { Router } from "./routes/authRoutes.js";
-import {  pitchRoutes } from "./routes/pitch";
+import { router as  pitchRoutes } from "./routes/pitch";
 
 const app = express();
 app.use(cors());
