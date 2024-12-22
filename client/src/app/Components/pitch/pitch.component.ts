@@ -9,19 +9,18 @@ import { PitchService } from '../../services/pitch.service';
   selector: 'app-pitch',
   imports: [CommonModule],
   templateUrl: './pitch.component.html',
-  styleUrl: './pitch.component.css'
+  styleUrl: './pitch.component.css',
 })
 export class PitchComponent implements OnInit {
   pitches: PitchInterface[] | null = [];
 
-  constructor(private router:Router, private pitchService: PitchService) {}
+  constructor(private router: Router, private pitchService: PitchService) {}
 
   ngOnInit(): void {
-
     // this.fetchPitches();
-
     try {
       this.pitchService.getAllPitches().subscribe((response) => {
+        console.log('Pitches fetched:', response);
         this.pitches = response;
         this.pitches?.forEach((pitches) => {
           this.pitchService.pitches().push(pitches);
@@ -40,12 +39,12 @@ export class PitchComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error fetching pitches:', error);
-      }
+      },
     });
   }
 
   showPitchDetailsPage(id: number): void {
-    console.log('Navigating with Product ID: ', id)
+    console.log('Navigating with Product ID: ', id);
 
     if (id === undefined) {
       console.error('No product ID provided');
@@ -53,5 +52,4 @@ export class PitchComponent implements OnInit {
     }
     this.router.navigate(['/pitch-details', id]);
   }
-
 }

@@ -1,9 +1,51 @@
-<div class="pitch-content">
+<!-- @if(pitches) {
+  console.log('pitches: ', pitches);
+  
+<div class="card-container">
+  @for (pitch of pitches; track pitch.id) {
+    <div class="card">
+      <img
+        [src]="pitches.IMG_URL"
+        class="card-img-top"
+        [alt]="pitch.name"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ pitch.name }}</h5>
+        <p class="card-text">{{ pitch.short_description }}</p>
+        <p class="card-price">R{{ product.price }}</p>
+      </div>
+      <div class="card-footer">
+        <button
+          type="button"
+          class="btn btn-dark"
+          (click)="showProductDetailsPage(product.id)"
+        >
+          Select
+        </button>
+      </div>
+    </div>
+  }
+</div>
+
+
+} -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="pitch-content">
 <div class="heading align-items-center ">
     <h1 class="pitch-heading heading mb-3 fw-bold">Where the football magic happens</h1> 
     <h3 class="pitch-sub-heading fw-semibold">Best pitches to play </h3>       
     </div>
-    <div *ngIf="pitches && pitches.length > 0; else noPitches">
+    <div *ngIf="pitches && pitches.length > 0; else pitches">
       <div class="pitch-container d-flex gap-4" *ngFor="let pitch of pitches">
         <div class="pitch-card cursor-pointer" (click)="showPitchDetailsPage(pitch.id)">
           <img [src]="pitch.image_URL" class="card-img-top" [alt]="pitch.name" />
@@ -16,16 +58,16 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   
     <!-- No pitches message -->
-    <ng-template #noPitches>
+    <!-- <ng-template #noPitches>
       <p class="text-center">No pitches available at the moment.</p>
-    </ng-template>
+    </ng-template> -->
 
 
  <!-- first three -->
-     <!-- <div class="pitch-container d-flex gap-4">
+      <div class="pitch-container d-flex gap-4">
     <div class="pitch-card">
       <img src="./images/pitch-1.png" class="card-img-top " alt=" UJ Orban Hockey Field">
       <div class="card-body pt-2">
@@ -72,8 +114,8 @@
         <p class="card-text pb-5">Swemmer Rd, Glenhazel, Johannesburg, 2192</p>
       </div>
     </div>
-  </div> -->
-</div> 
+  </div> 
+
 
 
 

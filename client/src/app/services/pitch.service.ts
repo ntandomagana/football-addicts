@@ -22,6 +22,7 @@ export class PitchService {
   pitches = signal<PitchInterface[]>([]);
 
   getAllPitches(): Observable<PitchInterface[]> {
+    console.log('getting all pitches');
         const headers = this.jwtHeaderService.createHeaders();
     this.jwtHeaderService.token = localStorage.getItem('token');
 
