@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PitchInterface } from '../../types/pitch.interface';
 import { Router } from '@angular/router';
@@ -11,17 +11,20 @@ import { PitchService } from '../../services/pitch.service';
   templateUrl: './pitch.component.html',
   styleUrl: './pitch.component.css'
 })
-export class PitchComponent implements OnInIt {
+export class PitchComponent implements OnInit {
   pitches: PitchInterface[] | null = [];
 
-  constructor(private router:Router, pitchService:PitchService) {}
+  constructor(private router:Router, private pitchService: PitchService) {}
 
-  ngOnInIt(): void {
+  ngOnInit(): void {
+
+    // this.fetchPitches();
+
     try {
-      this.PitchService.getAllPitches().subscribe((response) => {
+      this.pitchService.getAllPitches().subscribe((response) => {
         this.pitches = response;
         this.pitches?.forEach((pitches) => {
-          this.PitchService.pitches().push(pitches);
+          this.pitchService.pitches().push(pitches);
         });
       });
     } catch (err) {
@@ -29,7 +32,19 @@ export class PitchComponent implements OnInIt {
     }
   }
 
-  showPitchDetailsPage(id: number | undefined) {
+  fetchPitches(): void {
+    this.pitchService.getAllPitches().subscribe({
+      next: (response) => {
+        this.pitches = response;
+        console.log('Pitches fecthed:', this.pitches);
+      },
+      error: (error) => {
+        console.error('Error fetching pitches:', error);
+      }
+    });
+  }
+
+  showPitchDetailsPage(id: number): void {
     console.log('Navigating with Product ID: ', id)
 
     if (id === undefined) {

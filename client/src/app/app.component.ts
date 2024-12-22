@@ -18,7 +18,7 @@ import { LoginComponent } from './Components/login/login.component';
     AboutComponent,
     PitchComponent,
     BelowPitchComponent,
-    LoginComponent,
+    
   
   ],
   templateUrl: './app.component.html',
