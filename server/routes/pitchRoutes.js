@@ -1,12 +1,13 @@
-const express = require('express');
+
+import express from 'express';
+import {pool} from '../database/db.js'
 const router = express.Router();
-const { Pool } = require('pg');
 
 
 //this route gets all the pitches
 router.get('/', async (req, res) => {
     try {
-        const result = await Pool.query('SELECT * FROM pitches')
+        const result = await pool.query('SELECT * FROM pitches')
         res.status(200).json(result.rows);
     } catch (err) {
         console.error('Error fetching pitches:', err);
