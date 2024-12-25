@@ -13,13 +13,7 @@ import { LoginComponent } from './Components/login/login.component';
   imports: [
     RouterOutlet, 
     RouterModule, 
-    NavComponent,
-    HomeHeroComponent,
-    AboutComponent,
-    PitchComponent,
-    BelowPitchComponent,
-    
-  
+    NavComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
