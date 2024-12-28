@@ -28,7 +28,7 @@ export class PitchComponent implements OnInit {
     this.pitchService.getAllPitches().subscribe({
       next: (response: PitchInterface[]) => {
         console.log('Pitches fecthed:', response);
-        this.pitches = response;
+        this.pitches= response;
       },
       error: (error) => {
         console.error('Error  fetching pitches:', error);

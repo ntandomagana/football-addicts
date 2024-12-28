@@ -1,15 +1,45 @@
-<div class="card-container">
-  <div class="card" *ngFor="let pitch of pitches">
+
+<!-- <div class="container">
+  <div class="card" *ngFor="let pitch of pitches"></div>
+  <div class="card">
     <img src="{{ pitch.image_URL }}" class="card-img-top" alt="" />
     <div class="card-body">
+      <h5 class="card-title">{{ pitch.name }}</h5>
+      <p class="card-text">{{ pitch.address }}</p>
+      <p class="card-rating">
+        <span class="star-icon">���</span> {{ pitch.rating }}
+      </p>
+      <a href="#" class="btn btn-primary">Book Now</a>
+  
+  </div>
+  </div>
+</div> -->
+
+
+
+
+<div class="card-container">
+  <h2>Where football magic happens</h2>
+  <div class="best-pitches ">  
+    <h3 class="font-light text-2xl my-8">Best pitches to play football</h3>
+  </div>
+  <div class="card" *ngFor="let pitch of pitches">
+    <!-- Image at the top -->
+    <img
+      src="https://media.istockphoto.com/id/2149454463/photo/football-field.webp?a=1&b=1&s=612x612&w=0&k=20&c=mf5HLEMcENoX69I46WuFXJIHY2XRPpvyLJyXCNIRJsk="
+      class="card-img-top"
+      alt="{{ pitch.name }}"
+    />
+    <div class="card-body">
+      <!-- Header with name and rating aligned -->
       <div class="card-header">
         <h5 class="card-title">{{ pitch.name }}</h5>
-        <p class="card-text">{{ pitch.address }}</p>
         <p class="card-rating">
           <span class="star-icon">⭐</span> {{ pitch.rating }}
         </p>
       </div>
-      
+      <!-- Address below -->
+      <p class="card-text">{{ pitch.address }}</p>
     </div>
   </div>
 </div>
