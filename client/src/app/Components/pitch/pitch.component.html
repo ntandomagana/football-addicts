@@ -1,28 +1,15 @@
- <!-- @if(pitches) {
-  console.log('pitches: ', pitches); -->
-  
 <div class="card-container">
-  <div *ngFor="let pitch of pitches; trackBy: trackById" class="card">
-    <div class="card">
-      <img
-        [src]="pitch.image_URL"
-        class="card-img-top"
-        [alt]="pitch.name"
-      />
-      <div class="card-body">
+  <div class="card" *ngFor="let pitch of pitches">
+    <img src="{{ pitch.image_URL }}" class="card-img-top" alt="" />
+    <div class="card-body">
+      <div class="card-header">
         <h5 class="card-title">{{ pitch.name }}</h5>
         <p class="card-text">{{ pitch.address }}</p>
-        <p class="card-rating">R{{ pitch.rating }}</p>
+        <p class="card-rating">
+          <span class="star-icon">⭐</span> {{ pitch.rating }}
+        </p>
       </div>
-      <div class="card-footer">
-        <button
-          type="button"
-          class="btn btn-dark"
-          (click)="fetchAllPitches()"
-        >
-          Select
-        </button>
-      </div>
+      
     </div>
   </div>
 </div>

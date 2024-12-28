@@ -28,13 +28,13 @@ VALUES
 ('UJ Orban Hockey Field', 
 'Korea Rd & Ayr Rd, Melville, Johannesburg',
 '/images/pitch-1.png',
-4.6),
+4.2),
 
 -- Wits Sports Society
 ('Wits Sports Society', 
 'Raikes Rd, Johannesburg, 2000',
 '/images/pitch-2.png',
-4.6),
+4.9),
 
 -- Home of Wits Hockey
 ('Home of Wits Hockey', 
@@ -46,13 +46,13 @@ VALUES
 ('Balfour Park', 
 'Athol Road &, Johannesburg Rd, Highlands North',
 '/images/pitch-4.png',
-4.6),
+4.8),
 
 -- Wits Marks Park
 ('Wits Marks Park', 
 'Judith Rd, Emmarentia, Randburg, 2194',
 '/images/pitch-5.png',
-4.6),
+4.5),
 
 -- Glenhazel Courts (JHB)
 ('Glenhazel Courts (JHB)', 

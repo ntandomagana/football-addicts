@@ -1,22 +1,54 @@
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 1rem;
-
+  justify-content: space-between;
+  padding: 1rem;
 }
 
 .card {
-  flex: 1 1 calc(33.33% - 1rem); /* Ensure each card takes up one-third of the row minus the gap */
+  flex: 1 1 calc(33.33% - 1rem);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   overflow: hidden;
-  object-fit: cover;
-  /* max-width: calc(33.33% - 1rem); */
-   
+  max-width: calc(33.33% - 1rem);
+  text-align: center; /* Center-align text content */
 }
 
 .card img {
   width: 100%;
   height: auto;
 }
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between; /* Align name and rating on opposite sides */
+  align-items: center; /* Vertically center content */
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-rating {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.star-icon {
+  color: gold;
+  margin-right: 0.3rem; /* Space between star icon and rating */
+}
+
+.card-text {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+  
