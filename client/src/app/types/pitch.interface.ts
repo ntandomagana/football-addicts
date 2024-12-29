@@ -3,7 +3,7 @@ export interface PitchInterface {
     name: string,
     address : string,
     rating: number,
-    image_URL: string
+    image_url: string
 }
 
 
