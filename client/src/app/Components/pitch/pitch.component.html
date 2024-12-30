@@ -21,7 +21,8 @@
   <h2 class=" mb-4 fs-25">Where Football Magic Happens</h2>
   <h4 class="heading text-grey mb-3">Best pitches to play football</h4>
   <div class="row">
-    <div class="col-md-4" *ngFor="let pitch of pitches">
+    <div class="col-md-4" *ngFor="let pitch of pitches"
+    (click)="showPitchDetailsPage(pitch.id)">
       <div class="card h-10">
         <img [src]="pitch.image_url" class="card-img-top" [alt]="pitch.name" />
         <div class="card-body">
