@@ -1,48 +1,12 @@
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center; /* Centers the cards */
-}
-
+/* 
 .card {
-  flex: 0 1 calc(33.333% - 16px); /* 3 cards per row */
-  max-width: calc(33.333% - 1rem);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  background: #fff;
-  text-align: center;
-}
+  float: left;
+  width: 30%;
+  gap: 2rem;
+} */
 
-.card img {
-  width: 100%;
-  height: 100%;
+.card-img-top {
+  height: 200px;
   object-fit: cover;
-}
-
-.card-body {
-  padding: 1rem;
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between; /* Aligns name and rating */
-  align-items: center;
-}
-
-.card-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-rating {
-  font-size: 1rem;
-  color: #ffbf00; /* Gold color for the star */
-}
-
-.card-text {
-  margin-top: 0.5rem;
-  color: #666;
+  gap: 3rem; 
 }
