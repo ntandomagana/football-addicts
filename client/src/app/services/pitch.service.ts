@@ -26,11 +26,11 @@ export class PitchService {
         const headers = this.jwtHeaderService.createHeaders();
     this.jwtHeaderService.token = localStorage.getItem('token');
 
-    return this.http.get<PitchInterface[]>(`${this.url}/pitches`);
+    return this.http.get<PitchInterface[]>(`${this.url}/pitches`, { headers });
   }
 
   getPitchById(id: number): Observable<PitchDetailsInterface> {
     const headers = this.jwtHeaderService.createHeaders();
-    return this.http.get<PitchDetailsInterface>(`${this.url}/pitches/${id}`);
+    return this.http.get<PitchDetailsInterface>(`${this.url}/pitch-details/${id}`);
   }
 }

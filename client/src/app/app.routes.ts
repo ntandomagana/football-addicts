@@ -14,7 +14,7 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'pitches', component: PitchComponent },
     { path: 'below-pitch', component: BelowPitchComponent },
-    { path: 'pitch-details', component: PitchDetailsComponent }
+    { path: 'pitch-details/:id', component: PitchDetailsComponent }
     
 ];
 
