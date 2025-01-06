@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 
 //this route gets a single pitch by its id
 
-router.get('/:id', async (req, res) => {
+router.get('/pitch-details/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const result = await pool.query('SELECT * FROM pitches WHERE id = $1', [id])

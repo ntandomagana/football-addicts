@@ -16,6 +16,7 @@ export class PitchDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const pitchId = Number(this.route.snapshot.paramMap.get('id'));
+    console.log('Pitch ID:', pitchId)
     if (pitchId) {
       this.fetchPitchDetails(pitchId);
     }

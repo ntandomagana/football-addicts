@@ -21,41 +21,67 @@ CREATE TABLE IF NOT EXISTS pitches (
     rating DECIMAL NOT NULL
 )
 
---pitch component 
+
+DROP TABLE IF EXISTS pitches;
+
+SELECT * FROM pitches;
+
+
+CREATE TABLE IF NOT EXISTS pitches (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    image_URL VARCHAR(255) NOT NULL,
+    rating DECIMAL NOT NULL
+)
+
 INSERT INTO pitches (name, address, image_URL, rating)
 VALUES
 -- UJ Orban Hockey Field
 ('UJ Orban Hockey Field', 
 'Korea Rd & Ayr Rd, Melville, Johannesburg',
-'/images/pitch-1.png',
+'https://www.thewanderersclub.co.za/wp-content/uploads/2023/02/hockey3.jpg',
 4.2),
 
 -- Wits Sports Society
-('Wits Sports Society', 
-'Raikes Rd, Johannesburg, 2000',
-'/images/pitch-2.png',
+('Linden Swimming Pool', 
+'Corner and, 4th Ave &, 11th St, Linden, Randburg, 2104',
+'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/b9/af/47/caption.jpg?w=1400&h=800&s=1',
 4.9),
 
 -- Home of Wits Hockey
-('Home of Wits Hockey', 
+('Wits Hockey Astro', 
 '26 Hans Pirow Rd, Bruma, Johannesburg',
-'/images/pitch-3.png',
+'https://lh3.googleusercontent.com/p/AF1QipPgzxx_ZTeE-BHclxT2_SbncR2bDWRn76PVMeJN=s1360-w1360-h1020',
 4.6),
 
 -- Morninghill Football Arena
 ('Balfour Park', 
 'Athol Road &, Johannesburg Rd, Highlands North',
-'/images/pitch-4.png',
+'https://lh3.googleusercontent.com/p/AF1QipP4FqLOdD-B6yjmLMPECt97DSJZS8fUkXqlBuHO=s1360-w1360-h1020',
 4.8),
 
 -- Wits Marks Park
 ('Wits Marks Park', 
 'Judith Rd, Emmarentia, Randburg, 2194',
-'/images/pitch-5.png',
+'https://lh3.googleusercontent.com/p/AF1QipMOIFEcivFwXH4MHlPpn4xv0Ipo68ShA82aKNDH=s1360-w1360-h1020',
 4.5),
 
 -- Glenhazel Courts (JHB)
 ('Glenhazel Courts (JHB)', 
 'Swemmer Rd, Glenhazel, Johannesburg, 2192',
-'/images/pitch-6.png',
+'https://lh3.googleusercontent.com/p/AF1QipMDD-8UHWSH3Umo5dpn9jlCCgw5OeuvJZYbF_mx=s1360-w1360-h1020',
 4.6);
+
+UPDATE pitches
+SET image_url = 'https://lh3.googleusercontent.com/p/AF1QipMDD-8UHWSH3Umo5dpn9jlCCgw5OeuvJZYbF_mx=s1360-w1360-h1020'
+WHERE id = 6;
+
+UPDATE pitches
+SET address = 'Swemmer Rd, Glenhazel, Johannesburg, 2192'
+WHERE id = 6;
+
+SELECT * FROM pitches;
+
+
+SELECT * FROM pitches WHERE id = 1;
