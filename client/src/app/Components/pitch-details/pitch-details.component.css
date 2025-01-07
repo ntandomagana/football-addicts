@@ -1,10 +1,40 @@
 
 .container {
-    height: 400px;
-    margin: 10rem;
+    /* height: 400px; */
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
     /* width: 200px; */
 }
 
-.pitch-details-img {
+img {
+    width: 400px;
+    height: 400px;
     object-fit: cover;
+    border-radius: 5px;
+    overflow: hidden;
 }
+
+.book-btn {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.book-btn:hover {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+/* .pitch-details-img {
+    object-fit: cover;
+} */

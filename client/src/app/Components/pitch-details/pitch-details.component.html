@@ -2,13 +2,15 @@
   <div class="container-right">
     <img class="pitch-details-img"[src]="pitch?.image_url" [alt]="pitch?.name" />
   </div>
-  <div class="left">
-    <h2>{{ pitch?.name }}</h2>
-    <p>{{ pitch?.address }}</p>
-    <p>Rating: {{ pitch?.rating }}</p>
+  <div class="container-left p-5">
+    <h2 class="fw-bold">{{ pitch?.name }}</h2>
+    <p class="fw-bold">{{ pitch?.address }}</p>
+    <span class="star-icon">⭐</span> {{ pitch?.rating }}
+    <!-- <p>Rating: {{ pitch?.rating }}</p> -->
     
     <p>Price: R{{ pitch?.price }}</p>
-    <p>Available Slots: {{ pitch?.available_slots }}</p>
+    <button class="book-btn">Book Pitch </button>
+    <!-- <p>Available Slots: {{ pitch?.available_slots }}</p> -->
   </div>
 </div>
 
