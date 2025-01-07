@@ -5,8 +5,8 @@
             "server": "localhost",
             "port": 5432,
             "driver": "PostgreSQL",
-            "name": "footy-addicts",
-            "database": "footy-addicts",
+            "name": "footyaddicts",
+            "database": "footyaddicts",
             "username": "postgres"
         }
     ]

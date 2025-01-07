@@ -19,6 +19,7 @@ router.get('/', async (req, res) => {
 
 router.get('/pitch-details/:id', async (req, res) => {
     const { id } = req.params;
+    console.log(id)
     try {
         const result = await pool.query('SELECT * FROM pitches WHERE id = $1', [id])
         if(result.rows.length === 0) {

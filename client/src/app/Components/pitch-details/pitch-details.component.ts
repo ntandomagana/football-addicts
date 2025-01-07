@@ -26,6 +26,7 @@ export class PitchDetailsComponent implements OnInit {
     this.pitchService.getPitchById(id).subscribe({
       next: (data) => {
         this.pitch = data;
+        console.log('Pitch details fetched:', this.pitch);
       },
       error: (err) => {
         console.error('Error fetching pitch details:', err);

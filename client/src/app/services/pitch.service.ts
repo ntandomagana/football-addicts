@@ -31,6 +31,6 @@ export class PitchService {
 
   getPitchById(id: number): Observable<PitchDetailsInterface> {
     const headers = this.jwtHeaderService.createHeaders();
-    return this.http.get<PitchDetailsInterface>(`${this.url}/pitch-details/${id}`);
+    return this.http.get<PitchDetailsInterface>(`${this.url}/pitches/pitch-details/${id}`);
   }
 }
