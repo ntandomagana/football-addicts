@@ -35,6 +35,16 @@ img {
     border: 2px solid black;
 }
 
+
+.demo-inline-calendar-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  mat-calendar {
+    margin-top: 10px;
+  }
+  
 /* .pitch-details-img {
     object-fit: cover;
 } */
