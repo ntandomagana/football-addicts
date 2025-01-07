@@ -1,0 +1,10 @@
+
+.container {
+    height: 400px;
+    margin: 10rem;
+    /* width: 200px; */
+}
+
+.pitch-details-img {
+    object-fit: cover;
+}

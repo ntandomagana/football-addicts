@@ -1,25 +1,17 @@
 <div class="container">
-  <div class="right">
-    <img [src]="pitch?.image_url" [alt]="pitch?.name" />
+  <div class="container-right">
+    <img class="pitch-details-img"[src]="pitch?.image_url" [alt]="pitch?.name" />
   </div>
   <div class="left">
     <h2>{{ pitch?.name }}</h2>
     <p>{{ pitch?.address }}</p>
     <p>Rating: {{ pitch?.rating }}</p>
-    <p>{{ pitch?.description }}</p>
+    
     <p>Price: R{{ pitch?.price }}</p>
     <p>Available Slots: {{ pitch?.available_slots }}</p>
   </div>
 </div>
 
-<!-- <div *ngIf="pitch">
-  <h2>{{ pitch.name }}</h2>
-  <p><strong>Address:</strong> {{ pitch.address }}</p>
-  <p><strong>Description:</strong> {{ pitch.description }}</p>
-  <p><strong>Price:</strong> {{ pitch.price }}</p>
-  <p><strong>Rating:</strong> {{ pitch.rating }}</p>
-  <p><strong>Available Slots:</strong> {{ pitch.availableSlots }}</p>
-</div> -->
 
 
 
