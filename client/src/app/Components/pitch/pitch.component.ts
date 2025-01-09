@@ -29,6 +29,8 @@ export class PitchComponent implements OnInit {
     this.pitchService.getAllPitches().subscribe({
       next: (response: PitchInterface[]) => {
         console.log('Pitches fecthed:', response);
+        console.log('Details', this.pitches);
+        
         this.pitches= response;
       },
       error: (error) => {
@@ -37,7 +39,8 @@ export class PitchComponent implements OnInit {
     });
   }
 
-  showPitchDetailsPage(id: number): void {
+  showPitchDetailsPage(id: number): void 
+  {
     console.log('Navigating with Product ID: ', id);
     this.router.navigate(['/pitch-details', id]);
   }

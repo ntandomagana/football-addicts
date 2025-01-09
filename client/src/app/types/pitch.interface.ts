@@ -10,6 +10,6 @@ export interface PitchInterface {
 export interface PitchDetailsInterface extends PitchInterface {
     description: string,
     price: number,
-    duration: number,
+    duration: number, 
     // available_slots: number,
 }

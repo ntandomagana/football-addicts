@@ -16,7 +16,6 @@ router.get('/', async (req, res) => {
 })
 
 //this route gets a single pitch by its id
-
 router.get('/pitch-details/:id', async (req, res) => {
     const { id } = req.params;
     console.log(id)
@@ -25,7 +24,8 @@ router.get('/pitch-details/:id', async (req, res) => {
         if(result.rows.length === 0) {
             return res.status(404).json({ message: 'Pitch not found'})
         }
-        res.status(200).json(result.rows[0]);
+        console.log(result.rows);
+                res.status(200).json(result.rows[0]);
     } catch (err) {
         console.error('Error fetching pitch:', err);
         res.status(500).json({ message: 'Failed to fetch pitch'})

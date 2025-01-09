@@ -9,13 +9,30 @@
     <p>Price: R{{ pitch?.price }}</p>
     <p>Duration: {{ pitch?.duration }}</p>
     
+    
     <a class="book-link cursor-pointer fw-bold td-underline" (click)="openCalendar()">Click here to book this pitch</a>
-    <mat-card class="calendar-card m-5" *ngIf="calendarVisible">
-      <p class="fw-bold">Please choose a date and time:</p>
+   
+    <mat-card class="calendar-card" *ngIf="calendarVisible">
+      <p class="fw-bold mt-3">Please choose a date and time:</p>
       <mat-calendar  #calendar (selectedChange)="onDateSelect($event)"></mat-calendar>
     </mat-card>
 
+    <mat-form-field *ngIf="calendarVisible">
+      <mat-label>Pick a time</mat-label>
+      <input matInput [matTimepicker]="picker" [value]="selectedTime" (selectedChange)="onTimeChange($event)">
+      <mat-timepicker-toggle matIconSuffix [for]="picker">
+        <mat-icon matTimepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-timepicker-toggle>
+      <mat-timepicker #picker></mat-timepicker>
+    </mat-form-field>
+    
+
+   
+  
+
     <p *ngIf="selectedDate"> {{ selectedDate | date: 'fullDate' }}</p>
+    <p *ngIf="selectedTime"> {{ selectedTime }}</p>
+
 
   </div>
 </div>

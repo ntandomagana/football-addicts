@@ -85,10 +85,16 @@ SELECT * FROM pitches;
 
 ALTER TABLE pitches
 ADD COLUMN price NUMERIC(10, 2),
-ADD COLUMN duration INTERVAL;
+ADD COLUMN duration VARCHAR(20);
 
 
 UPDATE pitches 
 SET price = 300,
 duration = '60 minutes'
 WHERE id IN (1, 2, 3, 4, 5, 6);
+
+
+SELECT * FROM pitches;
+
+
+

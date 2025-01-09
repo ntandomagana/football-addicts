@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { NavComponent } from './Components/nav/nav.component';
-import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -10,8 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     RouterOutlet, 
     RouterModule, 
-    NavComponent,
-    HttpClientModule
+    NavComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

@@ -3,11 +3,20 @@ import { ActivatedRoute } from '@angular/router';
 import { PitchService } from '../../services/pitch.service';
 import { PitchDetailsInterface } from '../../types/pitch.interface';
 import { HttpClient } from '@angular/common/http';
+
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
+
+
+import {MatTimepickerModule} from '@angular/material/timepicker';
+import { MatIconModule } from '@angular/material/icon';  
+import { ReactiveFormsModule } from '@angular/forms';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 
 @Component({
@@ -16,7 +25,12 @@ import { CommonModule } from '@angular/common';
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    CommonModule],
+    CommonModule,
+    MatTimepickerModule,
+    MatIconModule,
+    ReactiveFormsModule,
+  
+  ],
   templateUrl: './pitch-details.component.html',
   styleUrl: './pitch-details.component.css'
 })
@@ -24,8 +38,10 @@ export class PitchDetailsComponent implements OnInit {
   pitch: PitchDetailsInterface | null = null;
   // @ViewChild('calendar') calendar: MatCalendar<any>;
 
-  calendarVisible = false;
+  calendarVisible: boolean = false;
   selectedDate: Date | null = null;
+  
+  selectedTime: string | null = null;
   
 
   constructor(
@@ -54,35 +70,31 @@ export class PitchDetailsComponent implements OnInit {
     });
   }
 
-  openCalendar(){
+  openCalendar(): void{
     this.calendarVisible = true;
     console.log('Calendar opened');
   }
 
-  onDateSelect(date: Date) {
+  onDateSelect(date: Date): void {
     this.selectedDate = date;
     console.log('Selected date:', this.onDateSelect);
   }
 
-  bookPitch() {
+  onTimeChange(event: any): void {
+    this.selectedTime = event.target.value;
+    console.log('Selected time:', this.selectedTime);
+  }
 
-    // if (this.onSelectedDate) {
-    //   console.log('Pitch booked for:', this.onSelectedDate);
-    //   else {
-    //     alert('Please choose a date before you book.')
-    //   }
-    //   return;
-    // }
+  bookPitch() {
+    if (this.selectedDate && this.selectedTime) {
+      console.log('Pitch booked for:', this.selectedDate, 'at', this.selectedTime);
+    } else {
+      console.error('Please select a date and time.');
+
       
     }
-  //   // This method will handle the booking logic when the user clicks the "Book Pitch" button.
-  //   if (this.selectedDate && this.selectedTime) {
-  //     console.log('Pitch booked for:', this.selectedDate, 'at', this.selectedTime);
-  //     // You can send this data to your backend to create a booking
-  //   } else {
-  //     console.error('Please select a date and time.');
-  //   }
-  // }
+  }
+
 
 
 }
