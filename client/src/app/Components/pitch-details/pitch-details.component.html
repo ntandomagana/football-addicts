@@ -7,34 +7,11 @@
     <p class="fw-bold">{{ pitch?.address }}</p>
     <span class="star-icon">⭐</span> {{ pitch?.rating }}
     <p>Price: R{{ pitch?.price }}</p>
-
+    <p>Duration: {{ pitch?.duration }}</p>
+    
+    <a class="book-link fw-bold td-underline " (click)="bookPitch()">Click here to book this pitch</a>
     <mat-card class="demo-inline-calendar-card">
-      <mat-calendar  ></mat-calendar>
+      <mat-calendar ></mat-calendar>
     </mat-card>
-]    
-    <p>Selected date:  </p>
-    
-
-    <!-- <mat-card class="demo-inline-calendar-card">
-      <mat-calendar [(selected)]="selected"></mat-calendar>
-    </mat-card>
-    <p>Selected date: {{ selected | date: 'fullDate' }}</p>  -->
-    
-
-    <!-- Date Picker -->
-     <!-- <mat-form-field appearance="fill">
-      <mat-label>Pick a date</mat-label>
-      <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" />
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>  -->
-
-    <!-- Time Picker -->
-    <!-- <mat-form-field appearance="fill">
-      <mat-label>Pick a time</mat-label>
-      <input matInput [(ngModel)]="selectedTime" type="time" />
-    </mat-form-field>  -->
-
-    <button class="book-btn" (click)="bookPitch()">Book Pitch</button>
   </div>
 </div>

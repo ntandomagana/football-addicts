@@ -16,17 +16,10 @@ img {
     overflow: hidden;
 }
 
-.book-btn {
-    padding: 10px;
-    border-radius: 5px;
-    background-color: black;
-    color: white;
-    border: none;
-    font-size: 14px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-weight: bold;
-}
+/* .book-link {
+    text-decoration: underline;
+
+} */
 
 .book-btn:hover {
     background-color: white;

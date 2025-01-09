@@ -3,37 +3,22 @@ import { ActivatedRoute } from '@angular/router';
 import { PitchService } from '../../services/pitch.service';
 import { PitchDetailsInterface } from '../../types/pitch.interface';
 import { HttpClient } from '@angular/common/http';
-
-import {MatCardModule} from '@angular/material/card';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {ChangeDetectionStrategy, model} from '@angular/core';
-import {provideNativeDateAdapter} from '@angular/material/core';
-
-/** @title Datepicker inline calendar example */
-@Component({
-  selector: 'datepicker-inline-calendar-example',
-  template: `   <mat-card class="demo-inline-calendar-card">
-  <mat-calendar [(selected)]="selected" ></mat-calendar>
-</mat-card>`,
-  styleUrl: 'pitch-details.component.css',
-  providers: [provideNativeDateAdapter()],
-  imports: [MatCardModule, MatDatepickerModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-})
-export class DatepickerInlineCalendarExample {
-  selected = model<Date | null>(null);
-}
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCardModule } from '@angular/material/card';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @Component({
   selector: 'app-pitch-details',
-  imports: [MatCardModule, MatDatepickerModule],
+  imports: [MatCardModule, MatDatepickerModule,MatNativeDateModule,MatFormFieldModule],
   templateUrl: './pitch-details.component.html',
   styleUrl: './pitch-details.component.css'
 })
 export class PitchDetailsComponent implements OnInit {
   pitch: PitchDetailsInterface | null = null;
+  @ViewChild('calendar') calendar: MatCalendar<any>;
+
   
 
   constructor(
