@@ -9,9 +9,13 @@
     <p>Price: R{{ pitch?.price }}</p>
     <p>Duration: {{ pitch?.duration }}</p>
     
-    <a class="book-link fw-bold td-underline " (click)="bookPitch()">Click here to book this pitch</a>
-    <mat-card class="demo-inline-calendar-card">
-      <mat-calendar ></mat-calendar>
+    <a class="book-link cursor-pointer fw-bold td-underline" (click)="openCalendar()">Click here to book this pitch</a>
+    <mat-card class="calendar-card m-5" *ngIf="calendarVisible">
+      <p class="fw-bold">Please choose a date and time:</p>
+      <mat-calendar  #calendar (selectedChange)="onDateSelect($event)"></mat-calendar>
     </mat-card>
+
+    <p *ngIf="selectedDate"> {{ selectedDate | date: 'fullDate' }}</p>
+
   </div>
 </div>

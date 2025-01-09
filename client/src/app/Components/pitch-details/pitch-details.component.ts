@@ -7,18 +7,25 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-pitch-details',
-  imports: [MatCardModule, MatDatepickerModule,MatNativeDateModule,MatFormFieldModule],
+  imports: [MatCardModule, 
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    CommonModule],
   templateUrl: './pitch-details.component.html',
   styleUrl: './pitch-details.component.css'
 })
 export class PitchDetailsComponent implements OnInit {
   pitch: PitchDetailsInterface | null = null;
-  @ViewChild('calendar') calendar: MatCalendar<any>;
+  // @ViewChild('calendar') calendar: MatCalendar<any>;
 
+  calendarVisible = false;
+  selectedDate: Date | null = null;
   
 
   constructor(
@@ -47,7 +54,27 @@ export class PitchDetailsComponent implements OnInit {
     });
   }
 
+  openCalendar(){
+    this.calendarVisible = true;
+    console.log('Calendar opened');
+  }
+
+  onDateSelect(date: Date) {
+    this.selectedDate = date;
+    console.log('Selected date:', this.onDateSelect);
+  }
+
   bookPitch() {
+
+    // if (this.onSelectedDate) {
+    //   console.log('Pitch booked for:', this.onSelectedDate);
+    //   else {
+    //     alert('Please choose a date before you book.')
+    //   }
+    //   return;
+    // }
+      
+    }
   //   // This method will handle the booking logic when the user clicks the "Book Pitch" button.
   //   if (this.selectedDate && this.selectedTime) {
   //     console.log('Pitch booked for:', this.selectedDate, 'at', this.selectedTime);
@@ -58,5 +85,4 @@ export class PitchDetailsComponent implements OnInit {
   // }
 
 
-}
 }

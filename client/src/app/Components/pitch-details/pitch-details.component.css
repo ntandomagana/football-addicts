@@ -16,10 +16,16 @@ img {
     overflow: hidden;
 }
 
-/* .book-link {
+.book-link {
     text-decoration: underline;
+    cursor: pointer;
+    color: black;
 
-} */
+}
+
+.book-link:hover {
+    color: blue;
+}
 
 .book-btn:hover {
     background-color: white;
@@ -27,6 +33,19 @@ img {
     font-weight: bold;
     border: 2px solid black;
 }
+
+.mat-calendar-selected {
+
+    background-color: white !important;
+    color: black !important;
+    border-radius: 50% !important;
+    width: 30px; 
+    height: 30px; 
+    
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
 
 
 /* .demo-inline-calendar-card {
