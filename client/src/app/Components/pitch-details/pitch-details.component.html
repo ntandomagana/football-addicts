@@ -19,11 +19,14 @@
 
     <mat-form-field *ngIf="calendarVisible">
       <mat-label>Pick a time</mat-label>
-      <input matInput [matTimepicker]="picker" [value]="selectedTime" (selectedChange)="onTimeChange($event)">
+      <input matInput 
+      [matTimepicker]="picker" 
+      [value]="selectedTime" 
+      (selectedChange)="onTimeChange($event)">
       <mat-timepicker-toggle matIconSuffix [for]="picker">
-        <mat-icon matTimepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        <mat-icon matTimepickerToggleIcon>keyboard_arrow_up</mat-icon>
       </mat-timepicker-toggle>
-      <mat-timepicker #picker></mat-timepicker>
+      <mat-timepicker #picker panelClass="custom-timepicker-panel"></mat-timepicker>
     </mat-form-field>
     
 
@@ -31,7 +34,9 @@
   
 
     <p *ngIf="selectedDate"> {{ selectedDate | date: 'fullDate' }}</p>
-    <p *ngIf="selectedTime"> {{ selectedTime }}</p>
+    <p *ngIf="selectedTime"> {{ selectedTime | date: 'shortTime' }}</p>
+
+    <!-- {{date   | date: "HH:mm:ss"}} -->
 
 
   </div>

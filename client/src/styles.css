@@ -16,3 +16,12 @@
   }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-timepicker-above .mat-timepicker-panel {
+  background-color: rgb(255, 255, 255) !important;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: var(--mat-timepicker-container-shape, var(--mat-sys-corner-extra-small));
+  border-top-right-radius: var(--mat-timepicker-container-shape, var(--mat-sys-corner-extra-small));
+}

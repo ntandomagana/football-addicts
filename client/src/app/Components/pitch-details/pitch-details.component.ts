@@ -11,6 +11,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 
 
+import { MatInputModule } from '@angular/material/input';
+
 import {MatTimepickerModule} from '@angular/material/timepicker';
 import { MatIconModule } from '@angular/material/icon';  
 import { ReactiveFormsModule } from '@angular/forms';
@@ -29,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTimepickerModule,
     MatIconModule,
     ReactiveFormsModule,
+    MatInputModule
   
   ],
   templateUrl: './pitch-details.component.html',
@@ -82,6 +85,7 @@ export class PitchDetailsComponent implements OnInit {
 
   onTimeChange(event: any): void {
     this.selectedTime = event.target.value;
+    
     console.log('Selected time:', this.selectedTime);
   }
 

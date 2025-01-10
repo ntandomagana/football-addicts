@@ -41,11 +41,23 @@ img {
     border-radius: 50% !important;
     width: 30px; 
     height: 30px; 
-    
     align-items: center;
     justify-content: center;
     font-weight: bold;
   }
+
+  mat-calendar {
+    margin-top: 10px;
+    padding: 10px;
+  } 
+
+
+  .custom-timepicker-panel .mat-timepicker-content {
+    top: auto !important;
+    bottom: 0 !important; 
+  }
+  
+
 
 
 /* .demo-inline-calendar-card {
@@ -55,7 +67,7 @@ img {
   
   mat-calendar {
     margin-top: 10px;
-  } */
+  } 
   
 /* .pitch-details-img {
     object-fit: cover;
