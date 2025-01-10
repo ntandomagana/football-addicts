@@ -81,6 +81,10 @@ export class PitchDetailsComponent implements OnInit {
   onDateSelect(date: Date): void {
     this.selectedDate = date;
     console.log('Selected date:', this.onDateSelect);
+    if (!this.selectedDate) {
+      console.error('No date selected');
+      return;
+    }
   }
 
   onTimeChange(event: any): void {

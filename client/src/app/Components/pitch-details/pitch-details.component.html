@@ -13,21 +13,27 @@
     <p>Price: R{{ pitch?.price }}</p>
     <p>Duration: {{ pitch?.duration }}</p>
 
+    <mbsc-datepicker
+    [controls]="['calendar', 'time']"
+    [touchUi]="true"
+    (onChange)="onDateTimeChange($event)">
+</mbsc-datepicker>
+
     <a
       class="book-link cursor-pointer fw-bold td-underline"
       (click)="openCalendar()"
       >Click here to book this pitch</a
     >
 
-    <mat-card class="calendar-card" *ngIf="calendarVisible">
+    <!-- <mat-card class="calendar-card" *ngIf="calendarVisible">
       <p class="fw-bold mt-3">Please choose a date and time:</p>
       <mat-calendar
         #calendar
         (selectedChange)="onDateSelect($event)"
       ></mat-calendar>
-    </mat-card>
+    </mat-card> -->
 
-    <mat-form-field *ngIf="calendarVisible">
+    <!-- <mat-form-field *ngIf="calendarVisible">
       <mat-label>Pick a time</mat-label>
       <input
         matInput
@@ -42,9 +48,13 @@
         #picker
         panelClass="custom-timepicker-panel"
       ></mat-timepicker>
-    </mat-form-field>
+      
+    </mat-form-field> -->
+    <button>Book Pitch</button>
 
     <p *ngIf="selectedDate">{{ selectedDate | date : "fullDate" }}</p>
     <p *ngIf="selectedTime">{{ selectedTime | date : "shortTime" }}</p>
+
+    
   </div>
 </div>
