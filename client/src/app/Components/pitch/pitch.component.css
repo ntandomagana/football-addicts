@@ -21,3 +21,8 @@
   object-fit: cover;
   gap: 3rem; 
 }
+
+.card-img-top:hover {
+  cursor: pointer;
+  
+}
