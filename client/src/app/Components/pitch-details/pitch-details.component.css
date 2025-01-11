@@ -36,7 +36,7 @@ img {
 
 .mat-calendar-selected {
 
-    background-color: white !important;
+    background-color: yellow !important;
     color: black !important;
     border-radius: 50% !important;
     width: 30px; 
@@ -57,6 +57,20 @@ img {
     bottom: 0 !important; 
   }
 
+  button {
+    padding: 8px;
+    font-weight: bold;
+    background-color: #000000;
+    border: none;
+    color: #ffffff; 
+  }
+
+  button:hover {
+    background-color: #ffffff;
+    color: black;
+    font-weight: bold;
+    border: 2px solid black;
+  }
   
   
 

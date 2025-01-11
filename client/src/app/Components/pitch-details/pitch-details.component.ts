@@ -7,23 +7,22 @@ import { HttpClient } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
-
 
 import { MatInputModule } from '@angular/material/input';
 
-import {MatTimepickerModule} from '@angular/material/timepicker';
-import { MatIconModule } from '@angular/material/icon';  
+import { MatTimepickerModule } from '@angular/material/timepicker';
+import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+// import { MbscModule } from '@mobiscroll/angular';
+
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
-
 
 @Component({
   selector: 'app-pitch-details',
-  imports: [MatCardModule, 
+  imports: [
+    MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
@@ -31,36 +30,38 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTimepickerModule,
     MatIconModule,
     ReactiveFormsModule,
-    MatInputModule
-  
+    MatInputModule,
   ],
   templateUrl: './pitch-details.component.html',
-  styleUrl: './pitch-details.component.css'
+  styleUrl: './pitch-details.component.css',
 })
 export class PitchDetailsComponent implements OnInit {
   pitch: PitchDetailsInterface | null = null;
   // @ViewChild('calendar') calendar: MatCalendar<any>;
 
+  minTime = '08:00';
+  maxTime = '22:00';
+
   calendarVisible: boolean = false;
   selectedDate: Date | null = null;
-  
+
   selectedTime: string | null = null;
-  
+  timeError: string | null = null;
 
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     private pitchService: PitchService,
     private http: HttpClient
   ) {}
 
   ngOnInit(): void {
     const pitchId = Number(this.route.snapshot.paramMap.get('id'));
-    console.log('Pitch ID:', pitchId)
+    console.log('Pitch ID:', pitchId);
     if (pitchId) {
       this.fetchPitchDetails(pitchId);
     }
   }
-//this fetches the pitch using its id
+  //this fetches the pitch using its id
   fetchPitchDetails(id: number): void {
     this.pitchService.getPitchById(id).subscribe({
       next: (data) => {
@@ -73,7 +74,7 @@ export class PitchDetailsComponent implements OnInit {
     });
   }
 
-  openCalendar(): void{
+  openCalendar(): void {
     this.calendarVisible = true;
     console.log('Calendar opened');
   }
@@ -89,20 +90,40 @@ export class PitchDetailsComponent implements OnInit {
 
   onTimeChange(event: any): void {
     this.selectedTime = event.target.value;
-    
+
     console.log('Selected time:', this.selectedTime);
+  }
+
+  checkBookingTime(time: string | null): void {
+    if (time) {
+      const selectedTime = this.convertTo24HourFormat(time);
+
+      if (
+        selectedTime < this.convertTo24HourFormat(this.minTime) ||
+        selectedTime > this.convertTo24HourFormat(this.maxTime)
+      ) {
+        this.timeError = `Bookings are only allowed between ${this.minTime} and ${this.maxTime}.`;
+      } else {
+        this.timeError = null;
+      }
+    }
+  }
+
+  convertTo24HourFormat(time: string): string {
+    const [hours, minutes] = time.split(':');
+    return `${hours.padStart(2, '0')}:${minutes}`;
   }
 
   bookPitch() {
     if (this.selectedDate && this.selectedTime) {
-      console.log('Pitch booked for:', this.selectedDate, 'at', this.selectedTime);
+      console.log(
+        'Pitch booked for:',
+        this.selectedDate,
+        'at',
+        this.selectedTime
+      );
     } else {
       console.error('Please select a date and time.');
-
-      
     }
   }
-
-
-
 }
