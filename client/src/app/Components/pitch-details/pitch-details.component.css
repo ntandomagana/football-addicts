@@ -71,6 +71,19 @@ img {
     font-weight: bold;
     border: 2px solid black;
   }
+
+  .confirmation-message {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #4caf50;
+    background-color: #dff0d8;
+    color: #3c763d;
+    border-radius: 5px;
+  }
+  .error {
+    color: red;
+  }
+  
   
   
 

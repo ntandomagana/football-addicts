@@ -48,6 +48,8 @@ export class PitchDetailsComponent implements OnInit {
   selectedTime: string | null = null;
   timeError: string | null = null;
 
+  confirmationMessage: string | null = null;
+
   constructor(
     private route: ActivatedRoute,
     private pitchService: PitchService,
@@ -114,16 +116,35 @@ export class PitchDetailsComponent implements OnInit {
     return `${hours.padStart(2, '0')}:${minutes}`;
   }
 
-  bookPitch() {
-    if (this.selectedDate && this.selectedTime) {
-      console.log(
-        'Pitch booked for:',
-        this.selectedDate,
-        'at',
-        this.selectedTime
-      );
-    } else {
-      console.error('Please select a date and time.');
-    }
+
+  bookPitch(): void {
+    alert('book pitched');
+    // const confirm = `Are you sure you want to book this pitch?`;
+    // if (confirm){
+    //   return;
+
+    // }
   }
+//   bookPitch() {
+//     if (this.selectedDate && this.selectedTime && this.pitch) {
+//       const formattedDate = this.selectedDate.toLocaleDateString();
+
+//       const confirmBooking = confirm(`Are you sure you want to book ${this.pitch.name} for 
+//         ${formattedDate} at ${this.selectedTime}?`);
+
+//         if (confirmBooking) {
+//           console.log('pitch booked')
+//           this.confirmationMessage = `Your booking for ${this.pitch.name} on ${formattedDate}
+//           at ${this.selectedTime} has been confirmed. Please check your email`;
+//         } else {
+//           this.confirmationMessage = `Booking cancelled`;
+//         } 
+//         }
+//       console.log(
+//         'Pitch booked for:',
+//         this.selectedDate,
+//         'at',
+//         this.selectedTime
+//       );
+//     } 
 }

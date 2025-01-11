@@ -5,7 +5,7 @@
       [src]="pitch?.image_url"
       [alt]="pitch?.name"
     />
-    <h1 class="description fs-6 mt-2"> {{ pitch?.description }}</h1>
+    <h1 class="description fs-6"> {{ pitch?.description }}</h1>
   </div>
   <div class="container-left p-5">
     <h2 class="fw-bold">{{ pitch?.name }}</h2>
@@ -58,7 +58,11 @@
     <p *ngIf="selectedDate">{{ selectedDate | date : "fullDate" }} at {{ selectedTime | date : "shortTime" }}</p>
     <p *ngIf="selectedTime">{{ selectedTime | date : "shortTime" }}</p>
 
-    <button *ngIf="calendarVisible">Book Pitch</button>
+    <button (click)="bookPitch()" *ngIf="calendarVisible">Book Pitch</button>
+
+    <div *ngIf="confirmationMessage" class="confirmation-message">
+      <p>{{ confirmationMessage }}</p>
+    </div>
 
     
   </div>
