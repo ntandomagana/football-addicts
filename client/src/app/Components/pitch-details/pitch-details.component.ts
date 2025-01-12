@@ -85,6 +85,7 @@ export class PitchDetailsComponent implements OnInit {
     this.selectedDate = date;
     console.log('Selected date:', this.onDateSelect);
     if (!this.selectedDate) {
+      alert('Please select a date');
       console.error('No date selected');
       return;
     }
@@ -118,12 +119,13 @@ export class PitchDetailsComponent implements OnInit {
 
 
   bookPitch(): void {
-    alert('book pitched');
-    // const confirm = `Are you sure you want to book this pitch?`;
-    // if (confirm){
-    //   return;
+   
+    const confirm = `Are you sure you want to book this pitch?`;
+    if (confirm){
+      alert('pitch booked');
+      return;
 
-    // }
+    }
   }
 //   bookPitch() {
 //     if (this.selectedDate && this.selectedTime && this.pitch) {
