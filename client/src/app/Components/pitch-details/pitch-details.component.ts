@@ -119,34 +119,42 @@ export class PitchDetailsComponent implements OnInit {
 
 
   bookPitch(): void {
-   
-    const confirm = `Are you sure you want to book this pitch?`;
-    if (confirm){
-      alert('pitch booked');
+    if (!this.selectedTime ||!this.selectedDate ||!this.pitch) {
+      alert('Please select a date, time and pitch');
       return;
-
     }
+   
+    // const confirm = `Are you sure you want to book this pitch?`;
+    // if (confirm){
+    //   alert('pitch booked');
+    //   return;
+    // }
+
+    const formattedDate = this.selectedDate.toLocaleDateString();
+    const userConfirm = confirm (`Are you sure you want to book ${this.pitch.name} for ${formattedDate} at ${this.selectedTime}?`);
+
+    if (userConfirm) {
+      alert('Pitch booked!');
+      this.confirmationMessage = `Your booking for ${this.pitch.name} on ${formattedDate} at ${this.selectedTime} has been confirmed. Please check your email`;
+      console.log('Pitch booked:', this.confirmationMessage);
+    } else {
+      this.confirmationMessage = 'Booking cancelled';
+      console.log('Booking cancelled');
+    }
+   
+
+
+
+
+    // if (this.selectedTime && this.selectedDate && this.pitch){
+    //   const confirmBooking = confirm (`Are you sure you want to book ${this.pitch.name} for ${formattedDate} at ${this.selectedTime}?`);
+    //   if (confirmBooking) {
+    //     console.log('pitch booked')
+    //     this.confirmationMessage = `Your booking for ${this.pitch.name} on ${formattedDate} at ${this.selectedTime} has been confirmed. Please check your email`;
+    //   } else {
+    //     this.confirmationMessage = `Booking cancelled`;
+    //   }
+    // }
   }
-//   bookPitch() {
-//     if (this.selectedDate && this.selectedTime && this.pitch) {
-//       const formattedDate = this.selectedDate.toLocaleDateString();
 
-//       const confirmBooking = confirm(`Are you sure you want to book ${this.pitch.name} for 
-//         ${formattedDate} at ${this.selectedTime}?`);
-
-//         if (confirmBooking) {
-//           console.log('pitch booked')
-//           this.confirmationMessage = `Your booking for ${this.pitch.name} on ${formattedDate}
-//           at ${this.selectedTime} has been confirmed. Please check your email`;
-//         } else {
-//           this.confirmationMessage = `Booking cancelled`;
-//         } 
-//         }
-//       console.log(
-//         'Pitch booked for:',
-//         this.selectedDate,
-//         'at',
-//         this.selectedTime
-//       );
-//     } 
 }
