@@ -15,6 +15,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTimepickerModule } from '@angular/material/timepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
 // import { MbscModule } from '@mobiscroll/angular';
 
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -53,7 +55,8 @@ export class PitchDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private pitchService: PitchService,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -101,20 +104,20 @@ export class PitchDetailsComponent implements OnInit {
     // console.log('Selected time:', this.selectedTime);
   }
 
-  // checkBookingTime(time: string | null): void {
-  //   if (time) {
-  //     const selectedTime = this.convertTo24HourFormat(time);
+  checkBookingTime(time: string | null): void {
+    if (time) {
+      const selectedTime = this.convertTo24HourFormat(time);
 
-  //     if (
-  //       selectedTime < this.convertTo24HourFormat(this.minTime) ||
-  //       selectedTime > this.convertTo24HourFormat(this.maxTime)
-  //     ) {
-  //       this.timeError = `Bookings are only allowed between ${this.minTime} and ${this.maxTime}.`;
-  //     } else {
-  //       this.timeError = null;
-  //     }
-  //   }
-  // }
+      if (
+        selectedTime < this.convertTo24HourFormat(this.minTime) ||
+        selectedTime > this.convertTo24HourFormat(this.maxTime)
+      ) {
+        this.timeError = `Bookings are only allowed between ${this.minTime} and ${this.maxTime}.`;
+      } else {
+        this.timeError = null;
+      }
+    }
+  }
 
   convertTo24HourFormat(time: string): string {
     const [hours, minutes] = time.split(':');
@@ -123,19 +126,18 @@ export class PitchDetailsComponent implements OnInit {
 
 
   bookPitch(): void {
+    if (this.selectedDate && this.selectedTime) {
+      alert("Pitch booked!");
+      return;
+    }
     console.log('Selected Time:', this.selectedTime);
     console.log('Selected Date:', this.selectedDate);
     console.log('Pitch:', this.pitch);
-    if (!this.selectedTime ||!this.selectedDate ||!this.pitch) {
-      alert('Please select a date, time and pitch');
-      return;
-    }
-   
-    // const confirm = `Are you sure you want to book this pitch?`;
-    // if (confirm){
-    //   alert('pitch booked');
+    // if (!this.selectedTime ||!this.selectedDate ||!this.pitch) {
+    //   alert('Please select a date, time and pitch');
     //   return;
     // }
+   
 
     const formattedDate = this.selectedDate.toLocaleDateString();
     const userConfirm = confirm (`Are you sure you want to book ${this.pitch.name} for ${formattedDate} at ${this.selectedTime}?`);
@@ -147,7 +149,10 @@ export class PitchDetailsComponent implements OnInit {
     } else {
       this.confirmationMessage = 'Booking cancelled';
       console.log('Booking cancelled');
+      this.router.navigate(['/pitches']);
     }
+    
+    }            
    
 
 
@@ -164,4 +169,4 @@ export class PitchDetailsComponent implements OnInit {
     // }
   }
 
-}
+
