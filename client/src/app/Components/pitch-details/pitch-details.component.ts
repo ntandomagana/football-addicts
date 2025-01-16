@@ -83,7 +83,7 @@ export class PitchDetailsComponent implements OnInit {
 
   onDateSelect(date: Date): void {
     this.selectedDate = date;
-    console.log('Selected date:', this.onDateSelect);
+    console.log('Selected date:', date);
     if (!this.selectedDate) {
       alert('Please select a date');
       console.error('No date selected');
@@ -93,24 +93,28 @@ export class PitchDetailsComponent implements OnInit {
 
   onTimeChange(event: any): void {
     this.selectedTime = event.target.value;
+    // this.checkBookingTime(this.selectedTime);
 
-    console.log('Selected time:', this.selectedTime);
+
+    console.log('Event:', event);
+
+    // console.log('Selected time:', this.selectedTime);
   }
 
-  checkBookingTime(time: string | null): void {
-    if (time) {
-      const selectedTime = this.convertTo24HourFormat(time);
+  // checkBookingTime(time: string | null): void {
+  //   if (time) {
+  //     const selectedTime = this.convertTo24HourFormat(time);
 
-      if (
-        selectedTime < this.convertTo24HourFormat(this.minTime) ||
-        selectedTime > this.convertTo24HourFormat(this.maxTime)
-      ) {
-        this.timeError = `Bookings are only allowed between ${this.minTime} and ${this.maxTime}.`;
-      } else {
-        this.timeError = null;
-      }
-    }
-  }
+  //     if (
+  //       selectedTime < this.convertTo24HourFormat(this.minTime) ||
+  //       selectedTime > this.convertTo24HourFormat(this.maxTime)
+  //     ) {
+  //       this.timeError = `Bookings are only allowed between ${this.minTime} and ${this.maxTime}.`;
+  //     } else {
+  //       this.timeError = null;
+  //     }
+  //   }
+  // }
 
   convertTo24HourFormat(time: string): string {
     const [hours, minutes] = time.split(':');
@@ -119,6 +123,9 @@ export class PitchDetailsComponent implements OnInit {
 
 
   bookPitch(): void {
+    console.log('Selected Time:', this.selectedTime);
+    console.log('Selected Date:', this.selectedDate);
+    console.log('Pitch:', this.pitch);
     if (!this.selectedTime ||!this.selectedDate ||!this.pitch) {
       alert('Please select a date, time and pitch');
       return;
