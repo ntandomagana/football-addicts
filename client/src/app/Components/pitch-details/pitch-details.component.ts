@@ -46,10 +46,8 @@ export class PitchDetailsComponent implements OnInit {
 
   calendarVisible: boolean = false;
   selectedDate: Date | null = null;
-
   selectedTime: string | null = null;
   timeError: string | null = null;
-
   confirmationMessage: string | null = null;
 
   constructor(
@@ -96,22 +94,21 @@ export class PitchDetailsComponent implements OnInit {
 
   onTimeChange(event: any): void {
     this.selectedTime = event.target.value;
-    // this.checkBookingTime(this.selectedTime);
+    console.log('time cklicked');
+    this.checkBookingTime(this.selectedTime);
 
-
-    console.log('Event:', event);
-
-    // console.log('Selected time:', this.selectedTime);
+    if (this.timeError) {
+      alert(this.timeError);
+      // this.selectedTime = null;
+    } else {
+      console.log('Selected time is valid:', this.selectedTime);
+    }
   }
 
   checkBookingTime(time: string | null): void {
     if (time) {
-      const selectedTime = this.convertTo24HourFormat(time);
 
-      if (
-        selectedTime < this.convertTo24HourFormat(this.minTime) ||
-        selectedTime > this.convertTo24HourFormat(this.maxTime)
-      ) {
+      if (time < this.minTime || time > this.maxTime) {
         this.timeError = `Bookings are only allowed between ${this.minTime} and ${this.maxTime}.`;
       } else {
         this.timeError = null;
@@ -119,54 +116,35 @@ export class PitchDetailsComponent implements OnInit {
     }
   }
 
-  convertTo24HourFormat(time: string): string {
-    const [hours, minutes] = time.split(':');
-    return `${hours.padStart(2, '0')}:${minutes}`;
-  }
-
 
   bookPitch(): void {
     if (this.selectedDate && this.selectedTime) {
-      alert("Pitch booked!");
-      return;
-    }
-    console.log('Selected Time:', this.selectedTime);
-    console.log('Selected Date:', this.selectedDate);
-    console.log('Pitch:', this.pitch);
-    // if (!this.selectedTime ||!this.selectedDate ||!this.pitch) {
-    //   alert('Please select a date, time and pitch');
-    //   return;
-    // }
-   
-
-    const formattedDate = this.selectedDate.toLocaleDateString();
-    const userConfirm = confirm (`Are you sure you want to book ${this.pitch.name} for ${formattedDate} at ${this.selectedTime}?`);
-
-    if (userConfirm) {
-      alert('Pitch booked!');
-      this.confirmationMessage = `Your booking for ${this.pitch.name} on ${formattedDate} at ${this.selectedTime} has been confirmed. Please check your email`;
-      console.log('Pitch booked:', this.confirmationMessage);
+      if (this.timeError) {
+        alert(this.timeError);
+        console.error('Cannot book: Invalid time selected');
+        return;
+      }
+  
+      const formattedDate = this.selectedDate.toLocaleDateString();
+      const userConfirm = confirm(
+        `Are you sure you want to book ${this.pitch?.name} for ${formattedDate} at ${this.selectedTime}?`
+      );
+  
+      if (userConfirm) {
+        alert('Pitch booked!');
+        this.confirmationMessage = `Your booking for ${this.pitch?.name} on ${formattedDate} at ${this.selectedTime} has been confirmed. Please check your email.`;
+        console.log('Pitch booked:', this.confirmationMessage);
+      } else {
+        this.confirmationMessage = 'Booking cancelled';
+        console.log('Booking cancelled');
+        this.router.navigate(['/pitches']);
+      }
     } else {
-      this.confirmationMessage = 'Booking cancelled';
-      console.log('Booking cancelled');
-      this.router.navigate(['/pitches']);
+      alert('Please select a date and a valid time.');
+      console.error('Incomplete booking details:', {
+        selectedDate: this.selectedDate,
+        selectedTime: this.selectedTime,
+      });
     }
-    
-    }            
-   
-
-
-
-
-    // if (this.selectedTime && this.selectedDate && this.pitch){
-    //   const confirmBooking = confirm (`Are you sure you want to book ${this.pitch.name} for ${formattedDate} at ${this.selectedTime}?`);
-    //   if (confirmBooking) {
-    //     console.log('pitch booked')
-    //     this.confirmationMessage = `Your booking for ${this.pitch.name} on ${formattedDate} at ${this.selectedTime} has been confirmed. Please check your email`;
-    //   } else {
-    //     this.confirmationMessage = `Booking cancelled`;
-    //   }
-    // }
-  }
-
-
+  }; 
+}
