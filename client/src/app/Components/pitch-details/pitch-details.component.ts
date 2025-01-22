@@ -39,7 +39,7 @@ import { Router } from '@angular/router';
 })
 export class PitchDetailsComponent implements OnInit {
   pitch: PitchDetailsInterface | null = null;
-  // @ViewChild('calendar') calendar: MatCalendar<any>;
+  // @ViewChild('ca\lendar') calendar: MatCalendar<any>;
 
   minTime = '08:00';
   maxTime = '22:00';
@@ -84,7 +84,7 @@ export class PitchDetailsComponent implements OnInit {
 
   onDateSelect(date: Date): void {
     this.selectedDate = date;
-    console.log('Selected date:', date);
+    console.log('Selected date:', this.selectedDate);
     if (!this.selectedDate) {
       alert('Please select a date');
       console.error('No date selected');
@@ -118,33 +118,38 @@ export class PitchDetailsComponent implements OnInit {
 
 
   bookPitch(): void {
-    if (this.selectedDate && this.selectedTime) {
-      if (this.timeError) {
-        alert(this.timeError);
-        console.error('Cannot book: Invalid time selected');
-        return;
-      }
-  
-      const formattedDate = this.selectedDate.toLocaleDateString();
-      const userConfirm = confirm(
-        `Are you sure you want to book ${this.pitch?.name} for ${formattedDate} at ${this.selectedTime}?`
-      );
-  
-      if (userConfirm) {
-        alert('Pitch booked!');
-        this.confirmationMessage = `Your booking for ${this.pitch?.name} on ${formattedDate} at ${this.selectedTime} has been confirmed. Please check your email.`;
-        console.log('Pitch booked:', this.confirmationMessage);
-      } else {
-        this.confirmationMessage = 'Booking cancelled';
-        console.log('Booking cancelled');
-        this.router.navigate(['/pitches']);
-      }
-    } else {
-      alert('Please select a date and a valid time.');
-      console.error('Incomplete booking details:', {
-        selectedDate: this.selectedDate,
-        selectedTime: this.selectedTime,
-      });
+    if (!this.selectedDate) {
+      alert('Please select a date.');
+      console.error('No date selected.');
+      return;
     }
-  }; 
+  
+    if (!this.selectedTime) {
+      alert('Please select a valid time.');
+      console.error('No time selected.');
+      return;
+    }
+  
+    if (this.timeError) {
+      alert(this.timeError);
+      console.error('Cannot book: Invalid time selected.');
+      return;
+    }
+  
+    const formattedDate = this.selectedDate.toLocaleDateString();
+    const userConfirm = confirm(
+      `Are you sure you want to book ${this.pitch?.name} for ${formattedDate} at ${this.selectedTime}?`
+    );
+  
+    if (userConfirm) {
+      alert('Pitch booked!');
+      this.confirmationMessage = `Your booking for ${this.pitch?.name} on ${formattedDate} at ${this.selectedTime} has been confirmed. Please check your email.`;
+      console.log('Pitch booked:', this.confirmationMessage);
+    } else {
+      this.confirmationMessage = 'Booking cancelled';
+      console.log('Booking cancelled');
+      this.router.navigate(['/pitches']);
+    }
+  }
+  
 }

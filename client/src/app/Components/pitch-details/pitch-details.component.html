@@ -5,7 +5,7 @@
       [src]="pitch?.image_url"
       [alt]="pitch?.name"
     />
-    <h1 class="description fs-6"> {{ pitch?.description }}</h1>
+    <h1 class="description fs-6 mt-3"> {{ pitch?.description }}</h1>
   </div>
   <div class="container-left p-5">
     <h2 class="fw-bold">{{ pitch?.name }}</h2>
@@ -28,7 +28,7 @@
     (onChange)="onDateTimeChange($event)">
 </mbsc-datepicker> -->
 
-    <mat-card class="calendar-card" *ngIf="calendarVisible">
+    <mat-card appearance="fill" class="calendar-card" *ngIf="calendarVisible">
       <p class="fw-bold mt-3">Please choose a date and time:</p>
       <mat-calendar
         #calendar
@@ -40,6 +40,7 @@
       <mat-label>Pick a time</mat-label>
       <input
         matInput
+        type="time"
         [matTimepicker]="picker"
         [value]="selectedTime"
         (selectedChange)="onTimeChange($event)"

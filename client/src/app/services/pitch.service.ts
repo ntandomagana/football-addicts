@@ -36,4 +36,8 @@ export class PitchService {
       `${this.url}/pitches/pitch-details/${id}`
     );
   }
+
+  bookPitch(data: {pitchId: number, date: string, time: string}){
+    return this.http.post(`${this.url}/pitches/book`, data);
+  }
 }
